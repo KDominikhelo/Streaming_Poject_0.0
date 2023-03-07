@@ -1,30 +1,55 @@
+
 <app-mainpage></app-mainpage>
 
-<div class="container">
-  <div>Screen record</div>
-  <div>
-    <button *ngIf="state === 'NONE'" (click)="startRecording()">
-      Start record
-    </button>
-    <button *ngIf="state === 'RECORDING'" (click)="stopRecording()">
-      Stop record
-    </button>
-    <button *ngIf="state === 'RECORDED'" (click)="downloadRecording()">
-      Download video
-    </button>
-    <button *ngIf="state === 'RECORDED'" (click)="clearRecording()">
-      Clear record
-    </button>
-  </div>
-  <video #videoElement class="video-container" controls autoplay playsInline>
-    <source [src]="videoBlobUrl" />
-  </video>
-</div>
-
-
- <br>
- <br>
- <br>
-
+<br>
 
 <router-outlet></router-outlet>
+
+
+<div class="container fixed-bottom ">
+
+  <button type="button" class="btn btn-danger button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   <img src="https://cdn-icons-png.flaticon.com/512/2710/2710460.png" style="width: 32px; height: 32px;" alt="">
+  </button>
+  
+</div> 
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Screen Recording</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <div class="container">
+            <div class="text-center">
+              <button class="btn btn-danger" style="margin-bottom: 10px;" *ngIf="state === 'NONE'" (click)="startRecording()">
+               <img src="https://cdn-icons-png.flaticon.com/512/9581/9581128.png" style="width: 32px; height: 32px;" alt=""> 
+              </button>
+              <button class="btn btn-danger" style="margin-bottom: 10px;" *ngIf="state === 'RECORDING'" (click)="stopRecording()">
+                <img src="https://cdn-icons-png.flaticon.com/512/9581/9581126.png" style="width: 32px; height: 32px;" alt=""> 
+              </button>
+              <button  class="btn btn-danger" style="margin: 10px;" *ngIf="state === 'RECORDED'" (click)="downloadRecording()">
+                 <img src="https://cdn-icons-png.flaticon.com/512/2989/2989976.png" style="width: 32px; height: 32px;" alt="">  
+              </button>
+              <button  class="btn btn-danger" style="margin: 10px;" *ngIf="state === 'RECORDED'" (click)="clearRecording()">
+               <img src="https://cdn-icons-png.flaticon.com/512/9742/9742093.png" style="width: 32px; height: 32px;" alt="">  
+              </button>
+            </div>
+            <video #videoElement class="video-container" controls autoplay playsInline>
+              <source [src]="videoBlobUrl" />
+            </video>
+          </div>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

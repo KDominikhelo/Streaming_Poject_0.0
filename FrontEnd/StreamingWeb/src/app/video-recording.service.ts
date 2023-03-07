@@ -49,7 +49,7 @@ export class VideoRecordingService {
   }
 
   downloadRecording() {
-    RecordRTC.invokeSaveAsDialog(this.blob, `${Date.now()}.webm`);
+    RecordRTC.invokeSaveAsDialog(this.blob, `${Date.now()}_Dominik .webm`);
   }
 
   clearRecording() {
