@@ -10,10 +10,10 @@
             <a class="nav-link active" routerLink="" aria-current="page" href="#">Főoldal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" *ngIf="bejelentkezve === false" routerLink="login" href="">Bejelentkezés</a>
+            <a class="nav-link active" *ngIf="!isLoggedIn"  routerLink="login" href="">Bejelentkezés</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" *ngIf="bejelentkezve === false" routerLink="registration" href="">Regisztráció</a>
+            <a class="nav-link active" *ngIf="!isLoggedIn"  routerLink="registration" href="">Regisztráció</a>
           </li>
         
         </ul>

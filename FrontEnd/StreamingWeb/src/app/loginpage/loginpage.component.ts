@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserDataService } from '../user-data.service';
+import { AuthService } from '../auth-service';
+
 
 @Component({
   selector: 'app-loginpage',
@@ -6,10 +10,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent implements OnInit {
+  loginForm: FormGroup | any;
 
-  constructor() { }
 
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder, private userDataService: UserDataService, private authService: AuthService) { }
+
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
+  onSubmit() {
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+
+    const user = this.userDataService.userData.find(user => user.username === username && user.password === password);
+
+    if (user) {
+      console.log("sikeres")
+      this.authService.login(username, password);
+     
+
+
+    } else {
+      console.log("sikerleten!");
+      
+    }
+  }
 }

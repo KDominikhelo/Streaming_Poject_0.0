@@ -2,6 +2,7 @@
 import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { VideoRecordingService } from './video-recording.service';
+import { AuthService } from './auth-service';
 
 
 type RecordingState = 'NONE' | 'RECORDING' | 'RECORDED';
@@ -13,17 +14,22 @@ type RecordingState = 'NONE' | 'RECORDING' | 'RECORDED';
 })
 
 export class AppComponent {
+
+
   @ViewChild('videoElement') videoElement: any;
   title = 'StreamingWeb';
   videoBlobUrl: any = null;
   video: any;
   state: RecordingState = 'NONE';
-  bejelentkezve = true;
+  isLoggedIn = this.authService.isLoggedIn;
 
   constructor(
     private videoRecordingService: VideoRecordingService,
     private ref: ChangeDetectorRef,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private authService: AuthService
+
+
   ) {
     this.videoRecordingService.getMediaStream().subscribe((data) => {
       this.video.srcObject = data;

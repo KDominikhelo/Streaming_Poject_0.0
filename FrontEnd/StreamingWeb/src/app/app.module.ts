@@ -9,6 +9,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { RegistrationpageComponent } from './registrationpage/registrationpage.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 import { VideoRecordingService } from './video-recording.service';
@@ -25,7 +27,8 @@ import { VideoRecordingService } from './video-recording.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [VideoRecordingService],
   bootstrap: [AppComponent]
