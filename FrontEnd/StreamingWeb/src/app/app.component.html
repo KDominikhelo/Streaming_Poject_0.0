@@ -6,7 +6,7 @@
 <router-outlet></router-outlet>
 
 
-<div class="container fixed-bottom ">
+<div *ngIf="bejelentkezve === true" class="container fixed-bottom ">
 
   <button type="button" class="btn btn-danger button" data-bs-toggle="modal" data-bs-target="#exampleModal">
    <img src="https://cdn-icons-png.flaticon.com/512/2710/2710460.png" style="width: 32px; height: 32px;" alt="">

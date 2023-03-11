@@ -18,6 +18,7 @@ export class AppComponent {
   videoBlobUrl: any = null;
   video: any;
   state: RecordingState = 'NONE';
+  bejelentkezve = true;
 
   constructor(
     private videoRecordingService: VideoRecordingService,

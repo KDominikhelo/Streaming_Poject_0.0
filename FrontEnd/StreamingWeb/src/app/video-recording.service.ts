@@ -10,7 +10,7 @@ export class VideoRecordingService {
   private _mediaStream = new Subject<any>();
   private _blob = new Subject<any>();
   
-  // getObservable
+
   getMediaStream() {
     return this._mediaStream.asObservable();
   }
@@ -24,7 +24,7 @@ export class VideoRecordingService {
   }
 
   async handleRecording() {
-    // @ts-ignore
+ 
     this.mediaStream = await navigator.mediaDevices.getDisplayMedia({
       audio: true,
       video: true
@@ -49,7 +49,7 @@ export class VideoRecordingService {
   }
 
   downloadRecording() {
-    RecordRTC.invokeSaveAsDialog(this.blob, `${Date.now()}_Dominik .webm`);
+    RecordRTC.invokeSaveAsDialog(this.blob, `${Date.now()}.mp4`);
   }
 
   clearRecording() {

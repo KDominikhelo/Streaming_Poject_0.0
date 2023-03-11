@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-  constructor() { }
+  bejelentkezve = false;
+
+
+  constructor() { 
+
+    
+
+
+  }
 
   ngOnInit(): void {
   }
