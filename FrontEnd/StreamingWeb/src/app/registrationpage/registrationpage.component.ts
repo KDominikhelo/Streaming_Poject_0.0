@@ -25,6 +25,7 @@ export class RegistrationpageComponent implements OnInit {
   }
 
   onSubmit() {
+    alert("Sikeres regisztráció!")
     const user = this.registrationForm.value;
     this.userDataService.addUser(user);
     this.registrationForm.reset();

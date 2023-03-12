@@ -1,13 +1,19 @@
-<div class="container regist text-center">
+<div class="container regist text-center  position-absolute top-50 start-50 translate-middle">
 
 
 
 
-      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-        <input type="text" formControlName="username" placeholder="Felhasználónév">
-        <input type="email" formControlName="email" placeholder="E-mail cím">
-        <input type="password" formControlName="password" placeholder="Jelszó">
-        <button type="submit">Regisztráció</button>
+      <form [formGroup]="registrationForm" class="form" (ngSubmit)="onSubmit()">
+        <label class="form-label" for="username">Felhasználónév</label>
+        <input class="form-control" type="text" formControlName="username" placeholder="Felhasználónév">
+        <label for="email">E-mail</label>
+        <input class="form-control" type="email" formControlName="email" placeholder="E-mail cím">
+        <label for="password">Jelszó</label>
+        <input class="form-control" type="password" formControlName="password" placeholder="Jelszó">
+        <div id="passwordHelpBlock" class="form-text">
+          A jelszavadnak minimum 6 karakternek kell lennie és nem tartalmazhat speciális karaktert vagy emojit.
+        </div>
+        <button class="btn btn-primary" type="submit" style="margin: 10px;">Regisztráció</button>
       </form>
       
 

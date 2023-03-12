@@ -1,11 +1,16 @@
 
-<div class="container bejelentkezes text-center">
+<div class="container bejelentkezes text-center position-absolute top-50 start-50 translate-middle">
 
    
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input type="text" formControlName="username" placeholder="Felhasználónév">
-        <input type="password" formControlName="password" placeholder="Jelszó">
-        <button type="submit">Bejelentkezés</button>
+      <form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+        <label for="username" class="form-label">Felhasználónév</label>
+        <input type="text"class="form-control" formControlName="username" placeholder="Felhasználónév">
+        <label for="passwo" class="form-label">Jelszó</label>
+        <input type="password" class="form-control"  formControlName="password" placeholder="Jelszó">
+        <div id="passwordHelpBlock" class="form-text">
+          A jelszavadnak minimum 6 karakternek kell lennie és nem tartalmazhat speciális karaktert vagy emojit.
+        </div>
+        <button class="btn btn-primary" type="submit" style="margin: 10px;">Bejelentkezés</button>
       </form>
 
 
