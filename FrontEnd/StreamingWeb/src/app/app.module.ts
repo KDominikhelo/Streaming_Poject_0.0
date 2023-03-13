@@ -14,13 +14,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { VideoRecordingService } from './video-recording.service';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainpageComponent,
     LoginpageComponent,
-    RegistrationpageComponent
+    RegistrationpageComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

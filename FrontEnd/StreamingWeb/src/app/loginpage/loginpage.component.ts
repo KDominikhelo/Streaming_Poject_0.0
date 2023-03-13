@@ -42,9 +42,9 @@ export class LoginpageComponent implements OnInit {
       
     }
 
-    if (this.authService.isLoggedIn) {
+    if (this.authService.getIsloggedIn()) {
       this.router.navigate(['/mainpage']);
-      alert(this.authService.isLoggedIn);
+      alert(this.authService.getIsloggedIn());
     }
   }
 

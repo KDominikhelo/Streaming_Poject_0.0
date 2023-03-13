@@ -21,7 +21,7 @@ export class AppComponent {
   videoBlobUrl: any = null;
   video: any;
   state: RecordingState = 'NONE';
-  isLoggedIn = this.authService.isLoggedIn;
+  public isLoggedIn!: boolean;  
 
   constructor(
     private videoRecordingService: VideoRecordingService,
@@ -44,6 +44,14 @@ export class AppComponent {
 
   ngAfterViewInit(): void {
     this.video = this.videoElement.nativeElement;
+  }
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.authService.getIsloggedIn();
+
+    this.authService.loginChangeEvent.subscribe(res=>{
+      this.isLoggedIn = res;
+    })
   }
 
   startRecording() {
